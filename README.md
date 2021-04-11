@@ -1,4 +1,4 @@
-# resume_1
+# mResume
 
 ## Project setup
 ```
@@ -13,6 +13,11 @@ npm run serve
 ### Compiles and minifies for production
 ```
 npm run build
+```
+
+### Bundle-analyzer
+```
+npm run build --report
 ```
 
 ### Lints and fixes files
