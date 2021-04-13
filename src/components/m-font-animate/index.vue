@@ -41,6 +41,7 @@ export default {
      */
     "use strict"
 
+
     const _that = this;
     const elts = {
       text1: document.querySelector('#text1'),
@@ -122,7 +123,7 @@ export default {
     function animate() {
       if (anTimes >= texts.length) {
         RAF ? cancelAnimationFrame(RAF) : null
-        _that.timer = setTimeout(() => { _that.$router.push('./home') }, 2000)
+        // _that.timer = setTimeout(() => { _that.$router.push('./home') }, 2000)
       } else {
         RAF = requestAnimationFrame(animate);
         let shouldIncrementIndex = cooldown > 0;//判断是否切换下一组文字

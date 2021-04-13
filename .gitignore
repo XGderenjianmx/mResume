@@ -5,6 +5,8 @@ node_modules
 /prod
 /test
 
+report.html
+
 
 
 # local env files

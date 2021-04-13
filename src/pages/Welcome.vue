@@ -6,6 +6,7 @@
 
 <script>
 import mFontAnimate from "../components/m-font-animate/index.vue"
+import { setCookie } from "../utils/cookies"
 export default {
   name: "Welcome",
   data() {
@@ -16,6 +17,10 @@ export default {
   },
   components: {
     mFontAnimate
+  },
+  mounted() {
+    //
+    setCookie(60 * 60 * 1000)
   }
 };
 </script>
