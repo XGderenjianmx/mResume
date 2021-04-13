@@ -3,6 +3,7 @@ const path = require('path')
 const resolve = function (dir) {
   return path.join(__dirname, dir)
 }
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 module.exports = {
   publicPath: process.env.NODE_ENV === 'production' ? '/' : '/',//打包后文件引用路径
   outputDir: process.env.VUE_APP_OUTPUT_DIR,//指定输出文件夹,默认是'dist'
@@ -26,8 +27,8 @@ module.exports = {
         args[0].title = 'mResume'
         return args
       })
-
   },
+
   devServer: {
     host: 'localhost',
     port: '8080',

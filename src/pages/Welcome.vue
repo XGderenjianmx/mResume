@@ -10,8 +10,8 @@ export default {
   name: "Welcome",
   data() {
     return {
-      //传入的字符串使用 空格 进行分割，转换为数组
-      msg: "Hello, I'm A Web Developer"
+      //传入的字符串将按照 空格 进行分割，转换为数组，首位空格则会导致数组地位为空
+      msg: " Welcome to this Site!"
     }
   },
   components: {

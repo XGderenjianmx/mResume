@@ -9,17 +9,25 @@
 
 export default {
   name: "Home",
-  components: {}
+  components: {},
+  computed: {
+
+  },
+  mounted() {
+
+  }
 };
 </script>
 <style lang="scss" scoped>
 .home {
-  font-family: "Fedra Sans", sans-serif;
+  width: 100vw;
+  height: 100vh;
+  background-color: $theme-color;
   h1 {
-    color: #444;
+    color: $font-color;
     font-size: 30px;
     line-height: 1;
-    text-align: left;
+    text-align: center;
     font-weight: 700;
   }
 }
