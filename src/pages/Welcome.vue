@@ -1,6 +1,10 @@
 <template>
   <div class="welcome">
-    <mFontAnimate :msg="msg" />
+    <mFontAnimate
+      :msg="msg"
+      :color="'var(--font-color)'"
+      :bg="'var(--bar-color)'"
+    />
   </div>
 </template>
 
@@ -11,7 +15,7 @@ export default {
   name: "Welcome",
   data() {
     return {
-      //传入的字符串将按照 空格 进行分割，转换为数组，首位空格则会导致数组地位为空
+      //传入的字符串将按照 空格 进行分割，转换为数组，首位空格则会导致数组第一位为空
       msg: " Welcome to this Site!"
     }
   },
@@ -20,10 +24,11 @@ export default {
   },
   mounted() {
     //
-    setCookie(60 * 60 * 1000)
+    setCookie(30 * 60 * 1000)
   }
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped></style>
+
+<style lang="scss" scoped>
+</style>

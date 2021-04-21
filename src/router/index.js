@@ -16,8 +16,21 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
+    redirect: "/home",
     component: () =>
-      import(/* webpackChunkName: "main" */ "../layout"),
+      import(/* webpackChunkName: "main" */ "../layout/index.vue"),
+    children: [{
+      path: "/home",
+      name: "home",
+      component: () =>
+        import(/* webpackChunkName: "home" */ "../pages/Home"),
+    },
+    {
+      path: "/concise",
+      name: "concise",
+      component: () =>
+        import(/* webpackChunkName: "concise" */ "../pages/Concise"),
+    }]
   },
   {
     path: "/404",
@@ -40,7 +53,7 @@ const whiteList = ['welcome', 'notFound']
 
 /**当第一次进入时会跳转到/welcome，并且设置cookie，后续进入如果带有cookie，则直接进入页面不需要在跳转到welcome */
 router.beforeEach((to, from, next) => {
-  if (whiteList.indexOf(to.name) !== 0) {
+  if (whiteList.indexOf(to.name) !== 0 && whiteList.indexOf(to.name) !== 1) {
     if (checkCookie()) {
       next()
     } else {

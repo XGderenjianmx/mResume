@@ -29,7 +29,6 @@ export default {
 }
 .fade-enter-active,
 .fade-leave-active {
-  will-change: opacity;
   transition: all 0.7s;
 }
 .fade-enter,

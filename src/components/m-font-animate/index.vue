@@ -1,8 +1,8 @@
 <template>
-  <div class="wrap">
-    <div class="container">
-      <span id="text1" ref="text1"></span>
-      <span id="text2" ref="text2"></span>
+  <div class="wrap" :style="{ backgroundColor: bg }">
+    <div class="container" :style="{ color: color }">
+      <span class="text1" ref="text1"></span>
+      <span class="text2" ref="text2"></span>
     </div>
     <svg id="filter">
       <defs>
@@ -27,11 +27,20 @@ export default {
     msg: {
       type: String,
       required: true
+    },
+    color: {
+      type: String,
+      required: true,
+      default: '#000000'
+    },
+    bg: {
+      type: String,
+      required: true
     }
   },
   data() {
     return {
-      timer: null
+      fisnish: false
     }
   },
   mounted() {
@@ -41,10 +50,8 @@ export default {
      */
     "use strict"
 
-
-    const _that = this;
     const elts = {
-      text1: document.querySelector('#text1'),
+      text1: document.querySelector('.text1'),
       text2: this.$refs.text2
     };
 
@@ -123,7 +130,8 @@ export default {
     function animate() {
       if (anTimes >= texts.length) {
         RAF ? cancelAnimationFrame(RAF) : null
-        // _that.timer = setTimeout(() => { _that.$router.push('./home') }, 2000)
+        /**文字动画结束后 */
+
       } else {
         RAF = requestAnimationFrame(animate);
         let shouldIncrementIndex = cooldown > 0;//判断是否切换下一组文字
@@ -153,25 +161,24 @@ export default {
       }
     }
     animate();
-    /**文字动画结束后 */
+
 
   },
   destroyed() {
-    clearTimeout(this.timer)
-    this.timer = null
+
   }
 }
 
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 @import url("https://fonts.font.im/css?family=Oleo+Script|Permanent+Marker");
+$size: 80px;
 
 .wrap {
   width: 100vw;
   height: 100vh;
   position: relative;
   overflow: hidden;
-  background-color: $theme-color;
 }
 .container {
   position: absolute;
@@ -179,20 +186,19 @@ export default {
   bottom: 0;
   margin: auto;
   width: 100%;
-  height: 80px;
-  filter: url(#threshold) blur(0.1px);
+  height: $size;
+  filter: url(#threshold) blur(0.2px);
 }
 
-#text1,
-#text2 {
+.text1,
+.text2 {
   display: inline-block;
   position: absolute;
   width: 100%;
   font-family: "Permanent Marker", cursive;
   font-family: "Oleo Script", cursive;
-  font-size: 80px;
+  font-size: $size;
   user-select: none;
   text-align: center;
-  color: #f7fff7;
 }
 </style>
